@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Selection"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
+             x:Class="Selection.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:CountriesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <syncfusion:SfTreeView x:Name="treeView"
+                             ItemHeight="40"
+                             Indentation="40"
+                             ExpanderWidth="40"
+                             SelectionMode="Multiple"
+                             ChildPropertyName="States" 
+                             SelectionBackgroundColor="#E4E4E4"
+                             ItemsSource="{Binding CountriesInfo}"
+                             SelectedItems="{Binding SelectedCountries}"
+                             AutoExpandMode="RootNodesExpanded">
+            <syncfusion:SfTreeView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5,0,0,0">
+                        <Label Text="{Binding Name}" 
+                                   FontSize="Medium"
+                                   VerticalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfTreeView.ItemTemplate>
+        </syncfusion:SfTreeView>
+    </ContentPage.Content>
+</ContentPage>
